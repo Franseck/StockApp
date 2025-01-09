@@ -8,3 +8,11 @@ const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 });
 export default store;
+
+
+/*
+font-family: "Fredericka the Great";
+font-family: "Nothing You Could Do";
+  font-family: "Special Elite" ;
+  font-family: "Wallpoet" ;
+*/

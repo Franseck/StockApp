@@ -2,7 +2,7 @@ import Avatar from "@mui/material/Avatar"
 import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
-import image from "../assets/result.svg"
+import image from "../assets/result2.svg"
 import { Link } from "react-router-dom"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
@@ -10,7 +10,7 @@ import { Button } from "@mui/material"
 
 const Login = () => {
     return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{bgcolor:"teal"}}>
       <Grid
         container
         justifyContent="center"
@@ -58,7 +58,7 @@ const Login = () => {
               variant="outlined"
             />
             <TextField
-              label="password"
+              label="Password"
               name="password"
               id="password"
               type="password"
@@ -69,14 +69,14 @@ const Login = () => {
             </Button>
           </Box>
 
-          <Box sx={{ textAlign: "center", mt: 2 }}>
+          <Box sx={{ textAlign: "center", mt: 3 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
 
         <Grid item xs={10} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="img" />
+          <Container sx={{width:400}}>
+            <img  src={image} alt="img"  />
           </Container>
         </Grid>
       </Grid>

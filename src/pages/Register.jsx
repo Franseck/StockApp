@@ -1,8 +1,8 @@
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 import Avatar from "@mui/material/Avatar"
-
-import image from "../assets/result.svg"
+import logo from "../assets/Logo.png"
+import image from "../assets/finance.jpg"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
@@ -14,11 +14,12 @@ const Register = () => {
   const navigate = useNavigate()
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl" >
       <Grid
         container
         justifyContent="center"
-        direction="row-reverse"
+        textAlign={"center"}
+        alignItems={"center"}
         rowSpacing={{ sm: 3 }}
         sx={{
           height: "100vh",
@@ -27,21 +28,19 @@ const Register = () => {
       >
         <Grid item xs={12}>
           <Typography variant="h3" color="primary" align="center">
-            STOCK APP
+            STOCK INVENTORY APP
           </Typography>
         </Grid>
 
-        <Grid item xs={12} sm={10} md={6}>
-          <Avatar
-            sx={{
-              backgroundColor: "secondary.light",
-              m: "auto",
-              width: 40,
-              height: 40,
+        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
+    
+          <img src={logo}
+            style={{
+ width:150,
+ borderRadius:15,
+marginTop:20,
             }}
-          >
- 
-          </Avatar>
+   />
           <Typography
             variant="h4"
             align="center"
@@ -100,11 +99,17 @@ const Register = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={0} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="" />
-          </Container>
-        </Grid>
+        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
+    
+    <img src={image}
+      style={{
+width:450,
+marginTop:100,
+borderRadius:15,
+
+      }}
+/>
+</Grid>
       </Grid>
     </Container>
   )

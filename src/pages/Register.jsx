@@ -1,17 +1,16 @@
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
-import Avatar from "@mui/material/Avatar"
 import logo from "../assets/Logo.png"
 import image from "../assets/finance.jpg"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import TextField from "@mui/material/TextField"
 
 const Register = () => {
-  const navigate = useNavigate()
+
 
   return (
     <Container maxWidth="xl" >
@@ -34,7 +33,7 @@ const Register = () => {
 
         <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
     
-          <img src={logo}
+          <img src={logo} alt="logo"
             style={{
  width:150,
  borderRadius:15,
@@ -101,7 +100,7 @@ marginTop:20,
 
         <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
     
-    <img src={image}
+    <img src={image} alt="foto"
       style={{
 width:450,
 marginTop:100,

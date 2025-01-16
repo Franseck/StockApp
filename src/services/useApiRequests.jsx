@@ -25,12 +25,12 @@ const useApiRequests = () => {
         `${BASE_URL}/auth/login`,
         userData
       )
-      toastSuccessNotify("Login işlemi başarılı")
+      toastSuccessNotify("Login Success")
       dispatch(loginSuccess(data))
       navigate("stock")
       console.log(data)
     } catch (error) {
-      toastErrorNotify("Login işlemi başarısız")
+      toastErrorNotify("Login Failed")
       dispatch(fetchFail())
       console.log(error)
     }

@@ -1,4 +1,3 @@
-import Avatar from "@mui/material/Avatar"
 import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
@@ -7,7 +6,7 @@ import logo from "../assets/Logo.png"
 import { Link } from "react-router-dom"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
-import { Button, Card } from "@mui/material"
+import { Button } from "@mui/material"
 
 const Login = () => {
     return (
@@ -29,15 +28,13 @@ const Login = () => {
 
         <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
     
-          <img src={logo}
+          <img src={logo} alt="logo"
             style={{
  width:150,
  borderRadius:15,
 
             }}
    />
-      
-
           <Typography
             variant="h4"
             align="center"

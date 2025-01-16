@@ -4,13 +4,15 @@ import logo from "../assets/Logo.png"
 import image from "../assets/finance.jpg"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import { Link } from "react-router-dom"
+import useApiRequests from "../services/useApiRequests"
+import { Formik } from "formik"
+import RegisterForm, { registerSchema } from "../components/Registerform"
 
-import TextField from "@mui/material/TextField"
 
 const Register = () => {
 
+  const {register} = useApiRequests()
 
   return (
     <Container maxWidth="xl" >
@@ -49,50 +51,24 @@ marginTop:20,
             Register
           </Typography>
 
-          <Box
-            component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
-            <TextField
-              label="User Name"
-              name="username"
-              id="userName"
-              type="text"
-              variant="outlined"
-            />
-            <TextField
-              label="First Name"
-              name="first_name"
-              id="firstName"
-              type="text"
-              variant="outlined"
-            />
-            <TextField
-              label="Last Name"
-              name="last_name"
-              id="last_name"
-              type="text"
-              variant="outlined"
-            />
-            <TextField
-              label="Email"
-              name="email"
-              id="email"
-              type="email"
-              variant="outlined"
-            />
-            <TextField
-              label="password"
-              name="password"
-              id="password"
-              type="password"
-              variant="outlined"
-            />
-            <Button type="submit" variant="contained" size="large">
-              Submit
-            </Button>
-          </Box>
-
+<Formik
+         initialValues={{
+          username: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+        }}
+        validationSchema={registerSchema}
+        onSubmit={(values, actions) => {
+          register(values)
+          actions.resetForm()
+          actions.setSubmitting(false)
+        }}
+component={(props) => <RegisterForm {...props} />}
+>
+</Formik>
+    
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/">Do you have an account?</Link>
           </Box>

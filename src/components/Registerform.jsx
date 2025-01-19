@@ -24,8 +24,7 @@ export const registerSchema = object({
     .max(5, "Password must be at most 5 characters")
     .matches(/\d+/, "Şifre bir sayı içermelidir")
     .matches(/[a-z]/, "Şifre bir küçük harf içermelidir")
-      .matches(/[!/[@$!%*?&]+/, "Şifre bir özel karakter içermelidir"),
-})
+ })
 
 const RegisterForm = ({
   values,

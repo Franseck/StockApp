@@ -9,7 +9,25 @@ import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 
 const Login = () => {
-  
+  const { login } = useApiRequests()
+
+  const loginSchema = object({
+    password: string()
+      .required("Şifre zorunludur")
+      .min(8, "Şifre en az 8 karekter içermelidir")
+      .max(16, "Şifre en fazla 16 karekter içermelidir")
+      .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
+      .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
+      .matches(
+        /[@$!%*?&]+/,
+        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
+      ),
+
+    email: string()
+      .email("Lütfen geçerli email giriniz")
+      .required("Email zorunludur"),
+  })
+
     return (
     <Container maxWidth="lg" style={{borderRadius:15}} sx={{bgcolor:"teal"}}>
       <Grid
@@ -45,28 +63,65 @@ const Login = () => {
             Login
           </Typography>
 
-          <Box
-            component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={loginSchema}
+            onSubmit={(values, actions) => {
+              //? POST (login)
+              login(values)
+              //? Formu temizleme
+              //? Mesaj (Toast)
+              //? Routing (stock)
+              //? Global state güncellemesi
+              actions.resetForm()
+              actions.setSubmitting(false) //? isSubmitting (Boolean)
+            }}
           >
-            <TextField
-              label="Email"
-              name="email"
-              id="email"
-              type="email"
-              variant="outlined"
-            />
-            <TextField
-              label="Password"
-              name="password"
-              id="password"
-              type="password"
-              variant="outlined"
-            />
-            <Button variant="contained" type="submit">
-              Submit
-            </Button>
-          </Box>
+            {({
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              values,
+              touched,
+              errors,
+            }) => (
+              <Form>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  <TextField
+                    label="Email"
+                    name="email"
+                    id="email"
+                    type="email"
+                    variant="outlined"
+                    onChange={handleChange}
+                    value={values.email}
+                    error={touched.email && Boolean(errors.email)}
+                    onBlur={handleBlur}
+                    helperText={errors.email}
+                  />
+                  <TextField
+                    label="password"
+                    name="password"
+                    id="password"
+                    type="password"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={errors.password}
+                  />
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </Button>
+                </Box>
+              </Form>
+            )}
+          </Formik>
 
           <Box sx={{ textAlign: "center", mt: 3 }}>
             <Link to="/register">Do you have not an account?</Link>

@@ -17,7 +17,7 @@ const useApiRequests = () => {
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
 
-   const BASE_URL = "https://console-12105.fullstack.clarusway.com"
+   const BASE_URL = "https://12105.fullstack.clarusway.com"
 
   const login = async (userData) => {
  

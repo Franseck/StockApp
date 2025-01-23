@@ -20,9 +20,7 @@ const useApiRequests = () => {
    const BASE_URL = "https://12105.fullstack.clarusway.com"
 
   const login = async (userData) => {
- 
-
-    dispatch(fetchStart())
+     dispatch(fetchStart())
     try {
       const { data } = await axios.post(
         `${BASE_URL}/auth/login`,
@@ -46,9 +44,11 @@ const useApiRequests = () => {
         `${BASE_URL}/users/`,
         userInfo
       )
+      toastSuccessNotify("Register Success")
       dispatch(registerSuccess(data))
-      navigate("/stock")
+      navigate("stock")
     } catch (error) {
+      toastErrorNotify("Register Failed")
       dispatch(fetchFail())
     }
   }
@@ -59,6 +59,7 @@ const useApiRequests = () => {
       await axios(`${BASE_URL}/auth/logout/`, {
         headers: { Authorization: `Token ${token}` },
       })
+      toastSuccessNotify("Logout Success")
       dispatch(logoutSuccess())
       navigate("/")
     } catch (error) {

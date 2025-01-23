@@ -16,13 +16,15 @@ import { object, string } from "yup"
 const Login = () => {
   const { login } = useApiRequests()
 
-  const loginSchema = object ({
+  const loginSchema = object({
     password: string()
     .required("Password is required")
-    .min(4, "Password must be at least 4 characters")
-    .max(5, "Password must be at most 5 characters")
+    .min(8, "Password must be at least 8 characters")
+    .max(20, "Password must be at most 20 characters")
     .matches(/\d+/, "Password must contain a number")
-    .matches(/[a-z]/, "Password must contain one lowercase letter"),
+    .matches(/[a-z]/, "Password must contain one lowercase letter")
+    .matches(/[A-Z]/, "Password must contain one uppercase letter")
+    .matches(/[!/[@$!%*?&]+/, "Password must contain one special character (@$!%*?&)"),
 
     email: string()
     .email("Please enter a valid email.")
@@ -68,14 +70,10 @@ const Login = () => {
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-              //? POST (login)
-              login(values)
-              //? Formu temizleme
-              //? Mesaj (Toast)
-              //? Routing (stock)
-              //? Global state güncellemesi
+                   login(values)
+       
               actions.resetForm()
-              actions.setSubmitting(false) //? isSubmitting (Boolean)
+              actions.setSubmitting(false) 
             }}
           >
             {({

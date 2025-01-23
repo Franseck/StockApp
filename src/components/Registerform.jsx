@@ -6,25 +6,27 @@ import { object, string } from "yup"
 
 export const registerSchema = object({
   username: string()
-    .max(20, "Username must be less than 10 characters.")
-    .required("username is reqired"),
+    .max(20, "Username must be less than 20 characters.")
+    .required("Username is required"),
   firstName: string()
-    .max(20, "Name must be less than 10 characters.")
-    .required("Name is reqired"),
+    .max(20, "Name must be less than 20 characters")
+    .required("Name is required"),
   lastName: string()
-    .max(20, "SurName must be less than 10 characters")
-    .required("SurName is required"),
+    .max(20, "Surname must be less than 20 characters")
+    .required("Surname is required"),
 
   email: string()
     .email("Please enter a valid email.")
     .required("Email is required"),
   password: string()
     .required("Password is required")
-    .min(4, "Password must be at least 4 characters")
-    .max(5, "Password must be at most 5 characters")
+    .min(8, "Password must be at least 8 characters")
+    .max(20, "Password must be at most 20 characters")
     .matches(/\d+/, "Password must contain a number")
     .matches(/[a-z]/, "Password must contain one lowercase letter")
- })
+    .matches(/[A-Z]/, "Password must contain one uppercase letter")
+    .matches(/[!/[@$!%*?&]+/, "Password must contain one special character (@$!%*?&)"),
+})
 
 const RegisterForm = ({
   values,
@@ -85,7 +87,7 @@ const RegisterForm = ({
           helperText={errors.email}
         />
         <TextField
-          label="password"
+          label="Password"
           name="password"
           id="password"
           type="password"

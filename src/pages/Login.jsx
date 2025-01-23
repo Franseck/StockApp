@@ -10,6 +10,7 @@ import { Button } from "@mui/material"
 import useApiRequests from "../services/useApiRequests"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
+import { red } from "@mui/material/colors"
 
 
 const Login = () => {
@@ -17,19 +18,15 @@ const Login = () => {
 
   const loginSchema = object ({
     password: string()
-      .required("Şifre zorunludur")
-      .min(8, "Şifre en az 8 karekter içermelidir")
-      .max(16, "Şifre en fazla 16 karekter içermelidir")
-      .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
-      .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
-      .matches(
-        /[@$!%*?&]+/,
-        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
-      ),
+    .required("Password is required")
+    .min(4, "Password must be at least 4 characters")
+    .max(5, "Password must be at most 5 characters")
+    .matches(/\d+/, "Password must contain a number")
+    .matches(/[a-z]/, "Password must contain one lowercase letter"),
 
     email: string()
-      .email("Lütfen geçerli email giriniz")
-      .required("Email zorunludur"),
+    .email("Please enter a valid email.")
+    .required("Email is required"),
   })
 
     return (

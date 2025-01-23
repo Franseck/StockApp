@@ -22,8 +22,8 @@ export const registerSchema = object({
     .required("Password is required")
     .min(4, "Password must be at least 4 characters")
     .max(5, "Password must be at most 5 characters")
-    .matches(/\d+/, "Şifre bir sayı içermelidir")
-    .matches(/[a-z]/, "Şifre bir küçük harf içermelidir")
+    .matches(/\d+/, "Password must contain a number")
+    .matches(/[a-z]/, "Password must contain one lowercase letter")
  })
 
 const RegisterForm = ({

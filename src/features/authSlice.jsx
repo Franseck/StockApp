@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const authSlice = createSlice({
   name: "auth",
 
-  initialState: { 
+  initialState: {
     token: "",
     username: "",
     loading: "",
@@ -18,6 +18,7 @@ const authSlice = createSlice({
       state.username = payload.user.username
       state.loading = false
     },
+
     registerSuccess: (state, { payload }) => {
       state.loading = false
       state.username = payload.data.username
@@ -35,9 +36,11 @@ const authSlice = createSlice({
   },
 })
 
-export const {  fetchStart,
+export const {
+  fetchStart,
   loginSuccess,
   registerSuccess,
   logoutSuccess,
-  fetchFail,} = authSlice.actions
+  fetchFail,
+} = authSlice.actions
 export default authSlice.reducer

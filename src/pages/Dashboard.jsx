@@ -40,7 +40,7 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
+      <Divider sx={{background:"bisque"}} />
       <MenuListItems />
     </div>
   )
@@ -68,7 +68,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            STOCK APP
+            Stock Inventory
           </Typography>
           {username && (
             <Button color="inherit" onClick={logout}>
@@ -124,6 +124,7 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{
           flexGrow: 1,
+          background:"teal",
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}

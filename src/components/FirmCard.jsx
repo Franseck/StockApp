@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia"
 import Typography from "@mui/material/Typography"
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import EditIcon from "@mui/icons-material/Edit"
-import { butonStyle } from "../style/globalStyles"
+import { butonStyle } from "../style/globalStyle"
 import useStockRequests from "../services/useStockRequests"
 
 export default function FirmCard({ firm, handleOpen, setData }) {
@@ -21,7 +21,9 @@ export default function FirmCard({ firm, handleOpen, setData }) {
         width: 300,
         height: 400,
         p: 2,
-      }}
+        background:"bisque",
+        borderRadius:5,
+              }}
     >
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -38,7 +40,7 @@ export default function FirmCard({ firm, handleOpen, setData }) {
         alt={firm?.name}
         height="140"
         image={firm?.image}
-        sx={{ objectFit: "contain" }}
+        sx={{ objectFit: "contain", }}
       />
 
       <Typography variant="body2" sx={{ color: "text.secondary", mt: 2 }}>

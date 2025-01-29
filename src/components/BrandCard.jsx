@@ -6,7 +6,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import EditIcon from "@mui/icons-material/Edit"
 import { CardHeader } from "@mui/material"
 import useStockRequests from "../services/useStockRequests"
-import { butonStyle } from "../style/globalStyles"
+import { butonStyle } from "../style/globalStyle"
 
 const BrandCard = ({ brand, handleOpen, setData }) => {
   const { deleteStock } = useStockRequests()

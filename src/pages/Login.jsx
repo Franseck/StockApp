@@ -48,7 +48,7 @@ const Login = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
+        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center", justifyItems:"center"}}>
     
           <img src={logo} alt="logo"
             style={{
@@ -60,6 +60,7 @@ const Login = () => {
           <Typography
             variant="h4"
             align="center"
+            mt={2}
             mb={4}
             color="secondary.light"
           >
@@ -85,7 +86,7 @@ const Login = () => {
               errors,
             }) => (
               <Form>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width:300 }}>
                   <TextField
                     label="Email"
                     name="email"
@@ -122,7 +123,7 @@ const Login = () => {
             )}
           </Formik>
 
-          <Box sx={{ textAlign: "center", mt: 3 }}>
+          <Box  style={{fontFamily: "Special Elite"}} sx={{ textAlign: "center", mt: 3 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>

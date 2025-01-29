@@ -2,6 +2,7 @@ import Box from "@mui/material/Box"
 import Modal from "@mui/material/Modal"
 import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
+import { modalStyle } from "../style/globalStyle"
 
 import { MenuItem, Select, InputLabel, FormControl } from "@mui/material"
 import { useSelector } from "react-redux"
@@ -38,7 +39,7 @@ export default function SaleModal({ open, handleClose, data, setData }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box >
+        <Box sx={{modalStyle}} >
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             component="form"

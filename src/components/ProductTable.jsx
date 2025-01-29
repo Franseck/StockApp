@@ -20,6 +20,7 @@ export default function ProductTable() {
       minWidth: 140,
       align: "center",
       headerAlign: "center",
+      
       // valueGetter: (value, row) => {
       //   console.log("ROW:", row, "VALUE:", value)
       //   //   return row.categoryId.name
@@ -75,6 +76,7 @@ export default function ProductTable() {
   return (
     <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
       <DataGrid
+       style={{fontFamily: "Special Elite"}}
         rows={products}
         columns={columns}
         disableRowSelectionOnClick

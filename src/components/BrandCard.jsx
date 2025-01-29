@@ -12,8 +12,8 @@ const BrandCard = ({ brand, handleOpen, setData }) => {
   const { deleteStock } = useStockRequests()
 
   return (
-    <Card
-      elevation={10}
+    <Card 
+         elevation={10}
       sx={{
         p: 2,
         width: "300px",
@@ -21,13 +21,13 @@ const BrandCard = ({ brand, handleOpen, setData }) => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-      }}
+        }}
     >
-      <CardHeader title={brand?.name} />
+      <CardHeader  title={brand?.name}   />
 
       <CardMedia
         image={brand?.image}
-        sx={{ p: 1, objectFit: "contain", height: "250px" }}
+               sx={{ p: 1, objectFit: "contain", height: "250px" }}
         component="img"
         alt="brand-img"
       />

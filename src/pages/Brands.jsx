@@ -24,16 +24,16 @@ const Brands = () => {
 
   return (
     <Box>
-      <Typography variant="h4" color="error" mb={2}>
+      <Typography variant="h4" color="error" mb={2} >
         Brands
       </Typography>
 
-      <Button variant="contained" onClick={handleOpen}>
-        New Brand
+      <Button variant="contained" onClick={handleOpen} >
+        New Brand 
       </Button>
 
       {loading && (
-        <CardSkeleton>
+        <CardSkeleton >
           <BrandCard />
         </CardSkeleton>
       )}

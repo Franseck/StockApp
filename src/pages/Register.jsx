@@ -33,13 +33,14 @@ const Register = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center"}}>
+        <Grid item xs={12} sm={10} md={6} style={{alignItems:"center", justifyContent:"center", textAlign:"center", justifyItems:"center"}}>
     
           <img src={logo} alt="logo"
             style={{
  width:150,
  borderRadius:15,
 marginTop:20,
+marginBottom:20
             }}
    />
           <Typography
@@ -69,7 +70,7 @@ component={(props) => <RegisterForm {...props} />}
 >
 </Formik>
     
-          <Box sx={{ textAlign: "center", mt: 2 }}>
+          <Box style={{fontFamily: "Special Elite"}}  sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/">Do you have an account?</Link>
           </Box>
         </Grid>

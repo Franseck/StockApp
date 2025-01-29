@@ -38,7 +38,7 @@ export default function SaleModal({ open, handleClose, data, setData }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={modalStyle}>
+        <Box >
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             component="form"

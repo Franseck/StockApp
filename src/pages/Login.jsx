@@ -124,7 +124,7 @@ const Login = () => {
           </Formik>
 
           <Box  style={{fontFamily: "Special Elite"}} sx={{ textAlign: "center", mt: 3 }}>
-            <Link to="/register">Do you have not an account?</Link>
+            <Link to="/register">Don't have an account?</Link>
           </Box>
         </Grid>
 
